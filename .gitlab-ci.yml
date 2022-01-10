@@ -1,0 +1,7 @@
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploy to staging server now"
+    - cd /home/ubuntu/Downloads/docker_project/www/Project
+    - git pull http://gitlab.cdm.tn/malek/cloud.git
+    - docker exec docker_php_1 php bin/console cache:clear --env=prod
